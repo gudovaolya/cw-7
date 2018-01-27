@@ -6,9 +6,9 @@ const Order = (props) => {
     let assortment =  props.assortment;
     let orders = [];
     let orderComponent = [];
-    let orderPrice = 0;
+    let orderPrice = props.orderPrice;
 
-    if (!props.isOrder) {
+    if (orderPrice === 0) {
        orderComponent.push(
            <p key='o-empty'>Order is empty! Please add some items</p>
        );
@@ -21,7 +21,7 @@ const Order = (props) => {
     }
 
     orders.forEach(item => {
-        orderPrice += item.amount*item.price;
+        // orderPrice += item.amount*item.price;
         let orderItem = (
             <div className="order-item" key={item.id}>
                 <b>{item.title.toUpperCase()}</b> x {item.amount}, unit price: {item.price} KGS
