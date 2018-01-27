@@ -3,6 +3,7 @@
     float: left;
     border: 1px solid #ccc;
     padding: 10px;
+    min-height: 400px;
 }
 .order-title{
     font-size: 20px;
