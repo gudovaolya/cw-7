@@ -10,8 +10,12 @@ const Assortment = (props) => {
         const assortmentComponents = [];
 
         assortment.forEach((item) => {
+
+           let itemClasses = ['assortment-item'];
+           itemClasses.push(item.title);
+
            let itemComponent = (
-               <div className="assortment-item"
+               <div className={itemClasses.join(' ')}
                     key={item.id}
                     onClick={() => props.click(item.id)}>
                    <h4>{item.title}</h4>

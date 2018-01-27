@@ -24,7 +24,8 @@ const Order = (props) => {
     orders.forEach(item => {
         let orderItem = (
             <div className="order-item" key={item.id}>
-                <b>{item.title.toUpperCase()}</b> x {item.amount}, unit price: {item.price} KGS
+                <b>{item.title.toUpperCase()}</b> x
+                <span>{item.amount}</span>, unit price: {item.price} KGS
                 <button className="order-delete" onClick={() => props.remove(item.id)}>x</button>
             </div>
         );
@@ -34,7 +35,7 @@ const Order = (props) => {
     if (orderPrice !== 0) {
         orderPriceComponent = (
             <div className="total-price">
-                Total price: {orderPrice} KGS
+                Total price: <span>{orderPrice}</span> KGS
             </div>
         )
     }
