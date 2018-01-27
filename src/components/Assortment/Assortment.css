@@ -1,0 +1,17 @@
+.assortment-block{
+    width: 700px;
+    float: right;
+    border: 1px solid #ccc;
+}
+.assortment-title {
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+}
+.assortment-item{
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    cursor: pointer;
+}

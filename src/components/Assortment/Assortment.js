@@ -3,13 +3,38 @@ import './Assortment.css';
 
 const Assortment = (props) => {
 
+    let assortment = props.assortment;
+    let prices = props.prices;
+
+    const showAssortment = () => {
+        let assortmentItems = Object.keys(assortment);
+
+        const assortmentComponents = [];
+
+        assortmentItems.forEach((item) => {
+           let itemComponent = (
+               <div className="assortment-item" key={item}>
+                   <h4>{item}</h4>
+                   <p>Prices: {prices[item]} KGS</p>
+               </div>
+           );
+            assortmentComponents.push(itemComponent);
+
+        });
+
+        return assortmentComponents;
+    };
+
+    let assortmentComponents = showAssortment();
+
     return (
         <div className="assortment-block">
-            <h3>Add items: </h3>
+            <h3 className="assortment-title">Add items: </h3>
             <div className="assortment">
+                {assortmentComponents}
                 <div className="assortment-item">
                     <h4>Hamburger</h4>
-                    price: 80 KGS
+                    <p>Price: 80 KGS</p>
                 </div>
             </div>
         </div>
