@@ -7,6 +7,7 @@ const Order = (props) => {
     let orders = [];
     let orderComponent = [];
     let orderPrice = props.orderPrice;
+    let orderPriceComponent = '';
 
     if (orderPrice === 0) {
        orderComponent.push(
@@ -21,7 +22,6 @@ const Order = (props) => {
     }
 
     orders.forEach(item => {
-        // orderPrice += item.amount*item.price;
         let orderItem = (
             <div className="order-item" key={item.id}>
                 <b>{item.title.toUpperCase()}</b> x {item.amount}, unit price: {item.price} KGS
@@ -31,15 +31,20 @@ const Order = (props) => {
         orderComponent.push(orderItem);
     });
 
+    if (orderPrice !== 0) {
+        orderPriceComponent = (
+            <div className="total-price">
+                Total price: {orderPrice} KGS
+            </div>
+        )
+    }
 
     return (
        <div className="order-block">
            <h3 className="order-title">Order Details:</h3>
            <div className="order-info">
                {orderComponent}
-               <div className="total-price">
-                   Total price: {orderPrice} KGS
-               </div>
+               {orderPriceComponent}
            </div>
        </div>
     )

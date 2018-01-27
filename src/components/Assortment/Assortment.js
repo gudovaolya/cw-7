@@ -39,5 +39,4 @@ const Assortment = (props) => {
 };
 
 
-
 export default Assortment;
