@@ -24,7 +24,8 @@ const Order = (props) => {
         orderPrice += item.amount*item.price;
         let orderItem = (
             <div className="order-item" key={item.id}>
-                {item.title} x {item.amount}, unit price: {item.price} KGS
+                <b>{item.title.toUpperCase()}</b> x {item.amount}, unit price: {item.price} KGS
+                <button className="order-delete" onClick={() => props.remove(item.id)}>x</button>
             </div>
         );
         orderComponent.push(orderItem);
@@ -36,7 +37,9 @@ const Order = (props) => {
            <h3 className="order-title">Order Details:</h3>
            <div className="order-info">
                {orderComponent}
-               {orderPrice}
+               <div className="total-price">
+                   Total price: {orderPrice} KGS
+               </div>
            </div>
        </div>
     )

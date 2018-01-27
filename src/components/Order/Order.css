@@ -9,3 +9,18 @@
     font-weight: normal;
     text-align: center;
 }
+.order-item{
+    padding: 5px 0 12px;
+    margin: 0 0 10px;
+    border-bottom: 1px dotted #ccc;
+    position: relative;
+}
+.order-delete{
+    margin-left: 20px;
+    padding: 2px 5px 3px;
+    color: #8B0000;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 2px;
+}

@@ -2,17 +2,29 @@
     width: 60%;
     float: right;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 20px 0;
 }
 .assortment-title {
     font-size: 20px;
     font-weight: normal;
     text-align: center;
 }
+.assortment{
+    display: flex;
+    flex-wrap: wrap;
+}
 .assortment-item{
-    width: 200px;
+    width: 250px;
     padding: 10px;
     border: 1px solid #ccc;
-    margin: 10px 0;
+    margin: 10px;
     cursor: pointer;
+    border-radius: 5px;
+}
+.assortment-item h4{
+    margin: 0 0 10px;
+    text-align: center;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #008B8B;
 }

@@ -15,7 +15,6 @@ const Assortment = (props) => {
                     key={item.id}
                     onClick={() => props.click(item.id)}>
                    <h4>{item.title}</h4>
-                   <span>{item.amount}</span>
                    <p>Prices: {item.price} KGS</p>
                </div>
            );

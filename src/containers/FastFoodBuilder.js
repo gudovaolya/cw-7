@@ -29,6 +29,18 @@ class FastFoodBuilder extends Component {
         this.setState({assortment});
     };
 
+    removeItemInOrder = (id) => {
+        const index = this.state.assortment.findIndex(item => item.id === id);
+        const itemAssortment = {...this.state.assortment[index]};
+        const assortment = [...this.state.assortment];
+        let isOrder = this.state.isOrder;
+
+
+
+        itemAssortment.amount--;
+        assortment[index] = itemAssortment;
+        this.setState({assortment});
+    };
 
     render () {
         return (
@@ -40,6 +52,7 @@ class FastFoodBuilder extends Component {
                 <Order
                     isOrder={this.state.isOrder}
                     assortment = {this.state.assortment}
+                    remove={this.removeItemInOrder}
                 />
             </div>
 
