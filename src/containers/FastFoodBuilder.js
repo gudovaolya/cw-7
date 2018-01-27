@@ -1,35 +1,48 @@
 import React, { Component } from 'react';
 import Assortment from "../components/Assortment/Assortment";
+import Order from "../components/Order/Order";
 
 class FastFoodBuilder extends Component {
     state = {
-        assortment: {
-            hamburger: 2,
-            cheeseburger: 1,
-            coffee: 1,
-            tea: 1,
-            cola: 1,
-            fries: 1
+        assortment: [
+            {title: 'humburger', price: 80, amount: 0, id: 'assortment1'},
+            {title: 'cheeseburger', price: 90, amount: 0, id: 'assortment2'},
+            {title: 'coffee', price: 70, amount: 0, id: 'assortment3'},
+            {title: 'tea', price: 50, amount: 0, id: 'assortment4'},
+            {title: 'cola', price: 40, amount: 0, id: 'assortment5'},
+            {title: 'fries', price: 45, amount: 0, id: 'assortment6'}
+        ],
+        isOrder: false
+    };
+
+    addItemInOrder = (id) => {
+        const index = this.state.assortment.findIndex(item => item.id === id);
+        const itemAssortment = {...this.state.assortment[index]};
+        const assortment = [...this.state.assortment];
+        let isOrder = this.state.isOrder;
+        if (!isOrder) {
+           isOrder = true;
+           this.setState({isOrder});
         }
+        itemAssortment.amount++;
+        assortment[index] = itemAssortment;
+        this.setState({assortment});
     };
-
-    prices = {
-        hamburger: 80,
-        cheeseburger: 90,
-        coffee: 70,
-        tea: 50,
-        cola: 40,
-        fries: 45
-    };
-
 
 
     render () {
         return (
-          <Assortment
-            assortment = {this.state.assortment}
-            prices = {this.prices}
-          />
+            <div className="container">
+                <Assortment
+                    assortment = {this.state.assortment}
+                    click={this.addItemInOrder}
+                />
+                <Order
+                    isOrder={this.state.isOrder}
+                    assortment = {this.state.assortment}
+                />
+            </div>
+
         );
     }
 }

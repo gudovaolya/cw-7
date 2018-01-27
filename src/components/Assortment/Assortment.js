@@ -4,18 +4,19 @@ import './Assortment.css';
 const Assortment = (props) => {
 
     let assortment = props.assortment;
-    let prices = props.prices;
 
     const showAssortment = () => {
-        let assortmentItems = Object.keys(assortment);
 
         const assortmentComponents = [];
 
-        assortmentItems.forEach((item) => {
+        assortment.forEach((item) => {
            let itemComponent = (
-               <div className="assortment-item" key={item}>
-                   <h4>{item}</h4>
-                   <p>Prices: {prices[item]} KGS</p>
+               <div className="assortment-item"
+                    key={item.id}
+                    onClick={() => props.click(item.id)}>
+                   <h4>{item.title}</h4>
+                   <span>{item.amount}</span>
+                   <p>Prices: {item.price} KGS</p>
                </div>
            );
             assortmentComponents.push(itemComponent);
@@ -32,10 +33,6 @@ const Assortment = (props) => {
             <h3 className="assortment-title">Add items: </h3>
             <div className="assortment">
                 {assortmentComponents}
-                <div className="assortment-item">
-                    <h4>Hamburger</h4>
-                    <p>Price: 80 KGS</p>
-                </div>
             </div>
         </div>
     )

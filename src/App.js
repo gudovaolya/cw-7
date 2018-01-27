@@ -6,7 +6,7 @@ import FastFoodBuilder from "./containers/FastFoodBuilder";
 class App extends Component {
     render() {
         return (
-            <div className="App container">
+            <div className="App">
                 <FastFoodBuilder />
             </div>
         );
